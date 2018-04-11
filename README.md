@@ -1,0 +1,2 @@
+# LAMiNSTALLER
+shortcut Lamp instalation
