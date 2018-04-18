@@ -1,0 +1,27 @@
+#!/bin/bash
+if [[ $EUID -ne 0 ]]; then
+	echo "you are root ?"
+	exit 
+	else
+	clear
+fi
+whiptail --textbox  --title "Install" --backtitle "by:khan(hecate)" --yes-button "ok" .end.txt 20 60
+echo "***************************installer Lamp Setup*******************************"
+echo "choise 1,to install use php5 / pilih 1 untuk menginstall menggunakan php5"
+echo "choise 2, to install use php7.0 / pilih 2 untuk menginstall menggunakan php7.0"
+echo "==============================================================================="
+echo "1. Install php5"
+echo "2. Install php7.0  : ?"
+read pilih
+
+	if [ $pilih -eq 1 ]
+	then
+	cd php5
+	./install
+	fi
+
+	if [ $pilih -eq 2 ]
+	then
+	cd php7.0
+	./install
+	fi

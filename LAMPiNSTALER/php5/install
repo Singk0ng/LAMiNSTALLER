@@ -1,0 +1,30 @@
+#!/bin/bash
+#install apache php5
+apt-get install apache2 php5 php5-mysql php5-gd php5-json php5-mcrypt php5-xmlrpc php5-cli php5-intl php5-curl php-pear php5-imagick
+cp info.php /var/www/html/
+#install mariadb or mysql
+echo "***************************installer Lamp Setup********************************"
+echo "choise 1,to install mariadb-server / pilih 1 untuk menginstall mariadb-server "
+echo "choise 2, to install mysql-server / pilih 2 untuk menginstall mysql-server "
+echo "================================================================================"
+echo "what you choose : "
+echo "1.mariadb-server"
+echo "2.mysql-server"
+echo "================================================================================"
+read pilih
+	if [ $pilih -eq 1 ]
+	then
+	apt-get install mariadb-server
+	fi
+	if [ $pilih -eq 2 ]
+	then
+	apt-get install mysql-server
+	fi
+mysql_secure_installation
+#install phpmyadmin
+apt-get install phpmyadmin
+#generate a2enmod
+a2enmod rewrite 
+echo "Restarting apache2"
+service apache2 restart
+echo "done, your lamp is installed"
